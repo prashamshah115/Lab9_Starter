@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Console Table Demo
-    buttons[10].addEventListener('click', () => {
+    buttons[2].addEventListener('click', () => {
         console.table(sampleData.users);
         if (window.TrackJS) {
             TrackJS.track('Console Table Demo clicked');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Console Dir Demo
-    buttons[6].addEventListener('click', () => {
+    buttons[3].addEventListener('click', () => {
         console.dir(sampleData.complexObject);
         if (window.TrackJS) {
             TrackJS.track('Console Dir Demo clicked');
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Console DirXML Demo
-    buttons[7].addEventListener('click', () => {
+    buttons[4].addEventListener('click', () => {
         console.dirxml(document.body);
         if (window.TrackJS) {
             TrackJS.track('Console DirXML Demo clicked');
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Console Group Start
-    buttons[8].addEventListener('click', () => {
+    buttons[5].addEventListener('click', () => {
         console.group('Grouped Information');
         console.log('First item in group');
         console.log('Second item in group');
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Console Group End
-    buttons[9].addEventListener('click', () => {
+    buttons[6].addEventListener('click', () => {
         console.groupEnd();
         if (window.TrackJS) {
             TrackJS.track('Console Group End clicked');
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Start Timer
-    buttons[11].addEventListener('click', () => {
+    buttons[7].addEventListener('click', () => {
         console.time('operationTimer');
         if (window.TrackJS) {
             TrackJS.track('Start Timer clicked');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // End Timer
-    buttons[12].addEventListener('click', () => {
+    buttons[8].addEventListener('click', () => {
         console.timeEnd('operationTimer');
         if (window.TrackJS) {
             TrackJS.track('End Timer clicked');
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Console Trace
-    buttons[13].addEventListener('click', () => {
+    buttons[9].addEventListener('click', () => {
         function first() {
             second();
         }
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Trigger Global Error
-    buttons[14].addEventListener('click', () => {
+    buttons[10].addEventListener('click', () => {
         try {
             // Intentionally cause an error
             const nonExistentElement = document.querySelector('#non-existent');
