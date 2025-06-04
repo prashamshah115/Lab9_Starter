@@ -124,12 +124,12 @@
   </main>
 
   <!-- TrackJS Error Monitoring -->
-  <script type="text/javascript">
-    window._trackJs = { token: "2177f10883354b8bb7b8df728bc737f7" };
-    (function(t,r,a,c,k,j,s){
-    s=t.createElement(r);s.type='text/javascript';s.async=true;s.src=a;
-    j=t.getElementsByTagName(r)[0];j.parentNode.insertBefore(s,j);
-    })(document,'script','https://cdn.trackjs.com/releases/current/tracker.js');
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "2177f10883354b8bb7b8df728bc737f7",
+      application: "lab9-demo"
+    });
   </script>
 
   <script src="script.js"></script>

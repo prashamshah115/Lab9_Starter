@@ -23,31 +23,51 @@ const sampleData = {
 
 // Initialize button functionality
 document.addEventListener('DOMContentLoaded', () => {
+    // Track page load
+    if (window.TrackJS) {
+        TrackJS.track('Page loaded');
+    }
+
     const buttons = document.querySelectorAll('#error-btns > button');
     
     // Console Log Demo
     buttons[0].addEventListener('click', () => {
         console.log('This is a console.log demonstration', sampleData.users);
+        if (window.TrackJS) {
+            TrackJS.track('Console Log Demo clicked');
+        }
     });
 
     // Console Error Demo
     buttons[1].addEventListener('click', () => {
         console.error('This is a console.error demonstration', new Error('Sample error'));
+        if (window.TrackJS) {
+            TrackJS.track('Console Error Demo clicked');
+        }
     });
 
     // Console Table Demo
     buttons[10].addEventListener('click', () => {
         console.table(sampleData.users);
+        if (window.TrackJS) {
+            TrackJS.track('Console Table Demo clicked');
+        }
     });
 
     // Console Dir Demo
     buttons[6].addEventListener('click', () => {
         console.dir(sampleData.complexObject);
+        if (window.TrackJS) {
+            TrackJS.track('Console Dir Demo clicked');
+        }
     });
 
     // Console DirXML Demo
     buttons[7].addEventListener('click', () => {
         console.dirxml(document.body);
+        if (window.TrackJS) {
+            TrackJS.track('Console DirXML Demo clicked');
+        }
     });
 
     // Console Group Start
@@ -55,21 +75,33 @@ document.addEventListener('DOMContentLoaded', () => {
         console.group('Grouped Information');
         console.log('First item in group');
         console.log('Second item in group');
+        if (window.TrackJS) {
+            TrackJS.track('Console Group Start clicked');
+        }
     });
 
     // Console Group End
     buttons[9].addEventListener('click', () => {
         console.groupEnd();
+        if (window.TrackJS) {
+            TrackJS.track('Console Group End clicked');
+        }
     });
 
     // Start Timer
     buttons[11].addEventListener('click', () => {
         console.time('operationTimer');
+        if (window.TrackJS) {
+            TrackJS.track('Start Timer clicked');
+        }
     });
 
     // End Timer
     buttons[12].addEventListener('click', () => {
         console.timeEnd('operationTimer');
+        if (window.TrackJS) {
+            TrackJS.track('End Timer clicked');
+        }
     });
 
     // Console Trace
@@ -84,6 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.trace('Trace demonstration');
         }
         first();
+        if (window.TrackJS) {
+            TrackJS.track('Console Trace clicked');
+        }
     });
 
     // Trigger Global Error
@@ -94,6 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
             nonExistentElement.innerHTML = 'This will fail';
         } catch (error) {
             console.error('Caught error:', error);
+            if (window.TrackJS) {
+                TrackJS.track('Global Error triggered');
+            }
         }
     });
 
@@ -122,6 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = eval(`${firstNum} ${operator} ${secondNum}`);
             output.innerHTML = result;
+            if (window.TrackJS) {
+                TrackJS.track('Calculation successful', { firstNum, secondNum, operator, result });
+            }
         } catch (error) {
             if (error instanceof CalculatorError) {
                 output.innerHTML = `Error: ${error.message}`;
@@ -129,6 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 output.innerHTML = 'An unexpected error occurred';
             }
             console.error('Calculator error:', error);
+            if (window.TrackJS) {
+                TrackJS.track('Calculator error', { error: error.message });
+            }
         }
     });
 });
@@ -142,5 +186,8 @@ window.onerror = function(message, source, lineno, colno, error) {
         colno,
         error
     });
+    if (window.TrackJS) {
+        TrackJS.track('Global error caught', { message, source, lineno, colno });
+    }
     return true; // Prevents the default browser error handling
 }; 
